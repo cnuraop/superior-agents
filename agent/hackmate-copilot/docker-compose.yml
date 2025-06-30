@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    env_file:
+      - .env
+    build:
+      context: ./backend
+    container_name: hackmate_backend
+    ports:
+      - "9009:9009"
+    volumes:
+      - ./backend:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: hackmate_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
