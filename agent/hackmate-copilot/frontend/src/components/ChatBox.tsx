@@ -37,7 +37,7 @@ export default function ChatBox() {
 
     setIsLoading(true)
     try {
-      const res = await axios.post("http://agentcopilot.netlify.app:9009/query", {
+      const res = await axios.post("https://agentcopilot.netlify.app:9009/query", {
         message: query,
       })
       setResponse(res.data.reply)
