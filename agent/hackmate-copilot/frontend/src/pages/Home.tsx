@@ -6,7 +6,7 @@ export default function ChatBox() {
   const [response, setResponse] = useState("");
 
   const handleSubmit = async () => {
-    const res = await axios.post("http://localhost:9009/query", { message: query });
+    const res = await axios.post("https://agentcopilot.netlify.app/query", { message: query });
     setResponse(res.data.reply);
   };
 
